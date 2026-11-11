@@ -1,0 +1,11 @@
+// Cloudflare Workers (static assets) – nasazení přes `npx wrangler deploy`
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "anetabenediktova",
+  "compatibility_date": "2026-10-15",
+  "assets": {
+    "directory": "./dist",
+    // React router: neznámé adresy obslouží index.html
+    "not_found_handling": "single-page-application"
+  }
+}

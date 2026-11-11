@@ -1,4 +1,4 @@
-# Přesměrování starých adres (Netlify / Cloudflare Pages formát).
+# Přesměrování starých adres (Cloudflare / Netlify formát).
 # Na Lovable hostingu a Vercelu řeší staré adresy přímo aplikace (src/App.tsx).
 /sluzby/cestovani-s-anetou            /pobyty                       301
 /sluzby/cestovani-s-anetou/*          /pobyty/:splat                301
@@ -7,5 +7,4 @@
 /bylinna-akademie/draci-krev-bylinkova-akademie-serafin  /bylinkova-akademie/draci-krev  301
 /rubrika/*                            /blog                         301
 
-# SPA – vše ostatní obslouží React
-/*                                    /index.html                   200
+# SPA fallback řeší wrangler.jsonc (not_found_handling: single-page-application)
