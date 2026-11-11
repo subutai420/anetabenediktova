@@ -2,21 +2,20 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import { nav, ritualUtero, site } from "@/content/site";
-import { LeafMark } from "@/components/site/Botanical";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link to="/" className="group flex items-center gap-3" aria-label={site.name}>
-      <span
-        className={cn(
-          "grid h-11 w-11 place-items-center rounded-full border transition-colors",
-          light ? "border-cream/30" : "border-primary/25 group-hover:border-primary/60",
-        )}
-      >
-        <LeafMark className={cn("h-6 w-6", light && "text-cream")} />
-      </span>
+      {/* ikona hmoždíře s bylinkami z původního loga */}
+      <img
+        src={light ? "/images/logo-icon-light.png" : "/images/logo-icon.png"}
+        alt=""
+        width={125}
+        height={99}
+        className="h-10 w-auto transition-transform group-hover:-rotate-3"
+      />
       <span className="whitespace-nowrap leading-none">
         <span className={cn("block font-serif text-[1.45rem] font-semibold tracking-tight", light ? "text-cream" : "text-foreground")}>
           {site.name}
