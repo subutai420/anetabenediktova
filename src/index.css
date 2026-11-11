@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design systém „Bylinná zahrada“
+  Všechny barvy jsou HSL proměnné – v Lovable stačí upravit tady.
+*/
+@layer base {
+  :root {
+    --cream: 40 42% 95%;      /* papír, pozadí */
+    --sage: 88 18% 84%;       /* světlá šalvěj */
+    --moss: 92 24% 36%;       /* hlavní bylinková zelená */
+    --clay: 16 45% 50%;       /* terakota – most na ritualutero.cz */
+    --honey: 38 52% 58%;      /* med, drobné akcenty */
+    --bark: 100 14% 18%;      /* tmavá kůra, text */
+
+    --background: var(--cream);
+    --foreground: var(--bark);
+    --card: 40 50% 98%;
+    --card-foreground: var(--bark);
+    --popover: 40 50% 98%;
+    --popover-foreground: var(--bark);
+    --primary: var(--moss);
+    --primary-foreground: 40 50% 97%;
+    --secondary: var(--sage);
+    --secondary-foreground: var(--bark);
+    --muted: 38 30% 90%;
+    --muted-foreground: 95 8% 38%;
+    --accent: var(--clay);
+    --accent-foreground: 40 50% 97%;
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 22% 84%;
+    --input: 38 22% 80%;
+    --ring: var(--moss);
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-primary;
+  }
+  .section {
+    @apply py-20 md:py-28;
+  }
+  .paper {
+    background-image:
+      radial-gradient(hsl(var(--honey) / 0.07) 1px, transparent 1px),
+      radial-gradient(hsl(var(--moss) / 0.05) 1px, transparent 1px);
+    background-size: 22px 22px, 31px 31px;
+    background-position: 0 0, 11px 7px;
+  }
+  /* Obsah článků a pobytů (HTML z editoru i z původního webu) */
+  .rich {
+    @apply prose prose-stone max-w-none prose-lg
+      prose-headings:font-serif prose-headings:font-medium prose-headings:text-foreground
+      prose-h2:text-3xl prose-h3:text-2xl
+      prose-p:leading-relaxed prose-p:text-foreground/85
+      prose-a:text-primary prose-a:underline-offset-4 hover:prose-a:text-accent
+      prose-strong:text-foreground
+      prose-img:rounded-2xl prose-img:mx-auto
+      prose-blockquote:border-l-primary prose-blockquote:font-serif prose-blockquote:text-xl prose-blockquote:not-italic
+      prose-li:marker:text-primary;
+  }
+  .rich img {
+    height: auto;
+  }
+  .rich figure img {
+    @apply max-h-[560px] w-auto;
+  }
+  /* galerie (více fotek za sebou z původního webu) */
+  .rich .gallery {
+    @apply my-8 grid grid-cols-2 gap-3 md:grid-cols-3;
+  }
+  .rich .gallery img {
+    @apply m-0 aspect-square h-full w-full rounded-2xl object-cover;
+  }
+  /* karty a seznam parametrů převzaté z MioWebu */
+  .rich .cards {
+    @apply my-8 grid gap-5 sm:grid-cols-2;
+  }
+  .rich .cards .card {
+    @apply rounded-2xl border bg-card p-5;
+  }
+  .rich .cards .card img {
+    @apply mb-4 aspect-[4/3] w-full rounded-xl object-cover;
+  }
+  .rich .cards .card h3 {
+    @apply font-serif text-2xl;
+  }
+  .rich .cards .card p {
+    @apply mt-2 text-sm text-muted-foreground;
+  }
+  .rich .cta a {
+    @apply inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground no-underline hover:bg-primary/90;
+  }
+  .rich blockquote footer {
+    @apply mt-2 font-sans text-sm font-semibold uppercase not-italic tracking-[0.16em] text-primary;
+  }
+  .rich iframe {
+    @apply w-full aspect-video rounded-2xl;
+    height: auto;
+  }
+}

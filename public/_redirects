@@ -1,0 +1,11 @@
+# Přesměrování starých adres (Netlify / Cloudflare Pages formát).
+# Na Lovable hostingu a Vercelu řeší staré adresy přímo aplikace (src/App.tsx).
+/sluzby/cestovani-s-anetou            /pobyty                       301
+/sluzby/cestovani-s-anetou/*          /pobyty/:splat                301
+/sluzby/pokec                         /sluzby/tradicni-postupy      301
+/bylinna-akademie                     /bylinkova-akademie           301
+/bylinna-akademie/draci-krev-bylinkova-akademie-serafin  /bylinkova-akademie/draci-krev  301
+/rubrika/*                            /blog                         301
+
+# SPA – vše ostatní obslouží React
+/*                                    /index.html                   200
